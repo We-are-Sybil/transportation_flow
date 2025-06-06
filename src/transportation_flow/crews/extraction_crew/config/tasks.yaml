@@ -1,0 +1,46 @@
+extract_information:
+  description: >
+    Analyze this message and extract ALL transportation-related information:
+    
+    Message: {message}
+    
+    Previous context (if any): {context}
+    
+    Extract these fields (use null for not found):
+    - nombre_solicitante (client's full name)
+    - cc_nit (ID or NIT number)
+    - celular_contacto (phone number)
+    - quien_solicita (who is requesting - person/role)
+    - fecha_inicio_servicio (service start date)
+    - hora_inicio_servicio (service start time)
+    - direccion_inicio (pickup address with city)
+    - direccion_terminacion (destination address with city)
+    - cantidad_pasajeros (number of passengers as integer)
+    - equipaje_carga (true if luggage/cargo mentioned, false if explicitly no luggage, null if not mentioned)
+    - caracteristicas_servicio (any special requirements mentioned)
+    
+    Output ONLY a valid JSON object with these fields.
+  expected_output: >
+    A valid JSON object containing all extractable transportation information
+  agent: information_extractor
+
+request_missing_information:
+  description: >
+    Current information collected: {current_info}
+    
+    Missing required fields: {missing_fields}
+    
+    Ask the customer for the missing information in a natural, conversational way in Spanish.
+    Guidelines:
+    - Be friendly and professional
+    - Ask for maximum 3 pieces of information at a time
+    - Make it sound like a conversation, not a form
+    - If asking for dates, suggest format (e.g., "15 de julio")
+    - If asking for time, suggest format (e.g., "3:00 PM")
+    - Use appropriate Colombian Spanish
+    
+    DO NOT generate a fake response - wait for the real customer to answer.
+  expected_output: >
+    A natural, friendly question in Spanish asking for the missing information
+  agent: conversation_manager
+  human_input: true

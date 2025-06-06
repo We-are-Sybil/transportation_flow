@@ -1,0 +1,28 @@
+create_summary:
+  description: >
+    Create a professional summary of this transportation request in Spanish:
+    
+    {request_data}
+    
+    The summary should:
+    1. Confirm all service details
+    2. Be formatted clearly and professionally
+    3. Use friendly but professional language
+    4. Include a closing that indicates we'll proceed with the quotation
+    
+    Format example:
+    ¡Perfecto! He registrado su solicitud de servicio:
+    
+    📋 **Detalles del Servicio:**
+    - Cliente: [nombre]
+    - Fecha: [fecha]
+    - Hora: [hora]
+    - Recogida: [dirección]
+    - Destino: [dirección]
+    - Pasajeros: [cantidad]
+    - Equipaje: [sí/no]
+    
+    Procederé a generar su cotización...
+  expected_output: >
+    A professional, friendly summary in Spanish confirming all service details
+  agent: service_summarizer
