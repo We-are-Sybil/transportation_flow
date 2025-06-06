@@ -7,9 +7,13 @@ from transportation_flow.schemas.transportation_models import (
 
 class ConversationState(BaseModel):
     """State model for transportation request conversations"""
-    # Conversation tracking - made optional with defaults
-    conversation_id: Optional[str] = Field(default="", description="Unique conversation identifier")
+    
+    # Flow inputs - these can be set via kickoff(inputs={...})
+    current_message: Optional[str] = Field(default="", description="Current message being processed")
     sender_id: Optional[str] = Field(default="", description="User/sender identifier")
+    
+    # Conversation tracking
+    conversation_id: Optional[str] = Field(default="", description="Unique conversation identifier")
     
     # Request data
     partial_request: PartialRequest = Field(
@@ -61,3 +65,10 @@ class ConversationState(BaseModel):
         # Update status
         if not self.missing_fields:
             self.status = "complete"
+    
+    def get_context_summary(self) -> str:
+        """Get a summary of the conversation context"""
+        if not self.messages:
+            return "No previous conversation"
+        
+        return f"Conversation with {len(self.messages)} messages, status: {self.status}"

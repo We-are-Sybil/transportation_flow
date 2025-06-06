@@ -8,6 +8,7 @@ information_extractor:
     common transportation terminology in Spanish.
   llm: ollama/qwen3:8b
   max_iter: 2
+  verbose: True
 
 conversation_manager:
   role: "Customer Service Representative"
@@ -17,5 +18,6 @@ conversation_manager:
     transportation company. You speak fluent Spanish and know how to ask for
     information in a conversational, non-robotic way. You make customers feel
     comfortable while efficiently gathering the information needed.
-  llm: ollama/qwen3:8b
+  llm: ollama/phi3:3.8b
   human_input: true
+  verbose: True

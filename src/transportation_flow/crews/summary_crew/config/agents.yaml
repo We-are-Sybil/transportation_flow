@@ -6,4 +6,5 @@ service_summarizer:
     summaries of transportation requests. You ensure all details are
     clearly presented and confirm the service requirements with customers
     in a friendly, professional manner.
-  llm: ollama/qwen3:8b
+  llm: ollama/phi3:3.8b
+  verbose: True

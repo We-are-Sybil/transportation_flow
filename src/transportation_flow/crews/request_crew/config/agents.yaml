@@ -6,7 +6,8 @@ request_analyzer:
     You can extract dates, locations, passenger counts, and service requirements
     from both formal and informal messages. You understand Colombian geography
     and common transportation needs.
-  llm: ollama/qwen3:8b
+  llm: ollama/phi3:3.8b
+  verbose: True
 
 information_validator:
   role: "Request Information Validator"
@@ -16,4 +17,5 @@ information_validator:
     what information is needed for different types of services and can
     identify missing data. You're also skilled at generating natural,
     friendly questions to request missing information.
-  llm: ollama/qwen3:8b
+  llm: ollama/phi3:3.8b
+  verbose: True
