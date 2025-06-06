@@ -58,7 +58,7 @@ class PartialRequest(BaseModel):
     direccion_terminacion: Optional[str] = None
     cantidad_pasajeros: Optional[int] = None
     equipaje_carga: Optional[bool] = None
-    raw_message: str = Field(description="Original message from user")
+    raw_message: Optional[str] = Field(default="", description="Original message from user")  
     
     def get_missing_fields(self) -> List[str]:
         """Return list of required fields that are missing"""

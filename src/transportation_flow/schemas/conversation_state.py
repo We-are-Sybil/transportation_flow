@@ -7,9 +7,9 @@ from transportation_flow.schemas.transportation_models import (
 
 class ConversationState(BaseModel):
     """State model for transportation request conversations"""
-    # Conversation tracking
-    conversation_id: str = Field(description="Unique conversation identifier")
-    sender_id: str = Field(description="User/sender identifier")
+    # Conversation tracking - made optional with defaults
+    conversation_id: Optional[str] = Field(default="", description="Unique conversation identifier")
+    sender_id: Optional[str] = Field(default="", description="User/sender identifier")
     
     # Request data
     partial_request: PartialRequest = Field(
